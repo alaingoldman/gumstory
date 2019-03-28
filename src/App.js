@@ -12,10 +12,20 @@ class App extends Component {
   componentDidMount(){
     initializeReactGA()
   }
+
+  onButtonPress(){
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked test button'
+    });
+    alert('triggered google event')
+  }
+
   render() {
     return (
       <div className="App">
         <h2> some page here </h2>
+        <h1 className="hoverMe" onClick={() => this.onButtonPress()}> trigger button event</h1>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
